@@ -24,10 +24,7 @@ def carregar_dados(df: pd.DataFrame, formato_saida: list) -> None:
     
     return None
 
-
-if __name__ == "__main__":
-    pasta_argumento: str = 'data'
-    df = extrair_dados_json(pasta=pasta_argumento)
+def pipeline_calcular_total_vendas_consolidado(pasta: str, formato_saida: list) -> None:
+    df = extrair_dados_json(pasta)
     df = calcular_total_vendas(df)
-    formato_saida: list = ["csv", "parquet"] 
     carregar_dados(df, formato_saida)
